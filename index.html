@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Grundexempel</title>
+
+    <!-- Lägg till din JS-fil här -->
+  </head>
+  <body>
+    <div id="app">
+      <!-- Data och Interpolering -->
+      <h1>{{ greeting }}</h1>
+      <p>Namn: {{ name }}</p>
+      <p>Ålder: {{ age }}</p>
+      <p>Stad: {{ city }}</p>
+
+      <!-- Methods + v-on:click -->
+      <button v-on:click="sayHello">Säg hej</button>
+      <button @click="increaseAge">Öka ålder</button>
+
+      <!-- v-if -->
+      <div>
+        <p v-if="isLoggedIn">✅ Du är inloggad!</p>
+        <p v-else>🚪 Logga in för att fortsätta.</p>
+        <button @click="toggleLogin">Växla inloggning</button>
+      </div>
+
+      <!-- v-model -->
+      <div>
+        <input v-model="name" placeholder="Ändra ditt namn" />
+        <input v-model="city" placeholder="Ändra din stad" />
+        <p>Hej {{ name }} från {{ city }}!</p>
+      </div>
+
+      <!-- v-for -->
+      <div>
+        <h2>Användare:</h2>
+        <ul>
+          <li v-for="user in users" :key="user.id">
+            {{ user.name }} (id: {{ user.id }})
+          </li>
+        </ul>
+        <button @click="addUser">Lägg till användare</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main2.js" defer></script>
+  </body>
+</html>
